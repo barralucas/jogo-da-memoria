@@ -1,7 +1,10 @@
+// classNames
 const FRONT = 'card_front';
 const BACK = 'card_back';
 const CARD = 'card';
 const ICON = 'icon';
+
+
 
 let techs = [
     'bootstrap',
@@ -25,11 +28,12 @@ function startGame() {
     shuffleCards(cards);
 
     initializeCards(cards);
+
 }
 
 function initializeCards(cards) {
     let gameBoard = document.getElementById('gameBoard');
-    console.log(gameBoard);
+    
 
     cards.forEach(card => {
 
@@ -43,15 +47,16 @@ function initializeCards(cards) {
         cardElement.addEventListener('click', flipCard);
         gameBoard.appendChild(cardElement);
 
+        
     })
-
+    console.log(cardElement)
 }
 
 
 function createCardContent(card, cardElement) {
 
     createCardFace(FRONT, card, cardElement);
-    createCardBack(BACK, card, cardElement);
+    createCardFace(BACK, card, cardElement);
 
 }
 
@@ -95,9 +100,6 @@ function shuffleCards(cards) {
 
 }
 
-
-
-
 createCardsFromTechs(techs);
 
 function createCardsFromTechs(techs) {
@@ -109,9 +111,7 @@ function createCardsFromTechs(techs) {
         cards.push(createPairFromTech(tech));
 
     })
-
     return cards.flatMap(pair => pair);
-
 }
 
 
